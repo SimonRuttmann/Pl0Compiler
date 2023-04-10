@@ -1,0 +1,6 @@
+CONST z = 1;
+VAR a,b,g;
+BEGIN
+z:=2;
+END.
+

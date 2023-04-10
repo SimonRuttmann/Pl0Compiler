@@ -1,0 +1,20 @@
+[
+	["loadc",0],
+	["loadc",3],
+	["loadr",0],
+	["add",0],
+	["inc",2],
+	["dup",0],
+	["dec",1],
+	["loadr",0],
+	["swap",0],
+	["stores",0],
+	["dup",0],
+	["storer",0],
+	["stores",0],
+	["loadr",0],
+	["dec",1],
+	["loads",0],
+	["storer",0],
+	["return",0]
+]

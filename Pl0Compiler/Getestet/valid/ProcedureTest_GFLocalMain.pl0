@@ -1,0 +1,33 @@
+VAR a, d;
+
+	PROCEDURE g;
+	VAR c, d;
+	BEGIN
+		a := 120;	
+		c := 320;	
+		d := 420;	
+		
+		! a;		
+		! c;		
+		! d;	
+	END;
+
+	PROCEDURE f;
+	VAR b, d;
+	BEGIN
+		a := 110;	
+		b := 210;	
+		d := 410;	
+		CALL g;
+		! a;		
+		! b;		
+		! d;	
+	END;
+
+BEGIN
+	a := 100;	
+	d := 400;	
+	CALL f;
+	! a;		
+	! d;
+END.

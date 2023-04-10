@@ -1,0 +1,4 @@
+CONST a = 5, b = 1, c = 2, d = 3, e = 3, f = 1, g = 2, h = 3;
+BEGIN
+END.
+

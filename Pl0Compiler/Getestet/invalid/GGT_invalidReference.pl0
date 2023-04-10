@@ -1,0 +1,20 @@
+CONST z = 1;
+VAR a,b,g;
+PROCEDURE ggt;
+    CONST abcd = 10;
+    VAR d, e, f;
+    BEGIN
+    WHILE a#h DO
+    BEGIN
+    IF a > b THEN a:= a-b;
+    IF b > a THEN b:= b-a;
+    END;
+    g:=a;
+    END;
+BEGIN 
+?a;
+?b;
+CALL ggt;
+!g;
+END.
+
