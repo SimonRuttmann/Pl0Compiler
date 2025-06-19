@@ -19,7 +19,7 @@ This compiler was developed as a study project to explore the fundamentals of co
 - **Recursive-descent parser** for PL/0 syntax
 - **Symbol table** with support for global and local procedures/variables
 - Compiles `.pl0` source files into **assembler (`.asm`)** output
-- Full support for the following **EBNF**:
+- Supports the **complete PL/0 grammar**. EBNF:
     ```
     program    = block "." .
     
@@ -43,20 +43,30 @@ This compiler was developed as a study project to explore the fundamentals of co
     ```
 ---
 
+## 🧠 How It Works
+
+1. **Lexing** – Tokenizes the PL/0 input.
+2. **Parsing** – Builds the abstract syntax tree (AST).
+3. **Symbol Resolution** – Tracks constants, variables, and procedures.
+4. **AST Generation** – Creates a abstract syntax tree.
+5. **Execution** – A simple interpreter executes the instructions.
+
+---
+
 ## 🛠️ Project Structure
 
 ```
 Pl0Compiler/
-├── src/
-│   ├── lexer/           # Tokenizer for PL/0 input
-│   ├── parser/          # Recursive-descent parser & AST builder
-│   ├── codegen/         # P-Code generator
-│   ├── vm/              # Simple stack-based virtual machine
-│   └── main.cpp         # CLI tool entry point
-├── examples/            # Sample PL/0 programs
-│   └── primes.pl0
-├── tests/               # Unit and integration tests
-└── README.md            # This file
+├── pl-0.c                                 # Main source file
+├── pl-0.l                                 # Flex lexer
+├── pl-0.y                                 # Bison parser
+├── pl0-symtab.cpp/.h                      # Symbol table for variables and procedures
+├── IntermediateCode.cpp/.h                # Implementaion of an abstract syntax tree
+├── DebugConsole.cpp/.h                    # Generator of assembler code
+├── AssemblerCodeGenrator.cpp/.h           # Generator of assembler code
+├── Makefile                               # Build instructions
+├── examples/                              # Example programs
+└── README.md                              # This file
 ```
 
 ---
@@ -113,23 +123,13 @@ end;
 call primes.
 ```
 
-Run:
+Compile with:
 
 ```bash
 ./pl-0 examples/primes.pl0
 ```
 
-This will print prime candidates from 2 to 100 using the `!` operator.
-
----
-
-## 🧠 How It Works
-
-1. **Lexing** – Tokenizes the PL/0 input.
-2. **Parsing** – Builds the abstract syntax tree (AST).
-3. **Symbol Resolution** – Tracks constants, variables, and procedures.
-4. **P-Code Generation** – Emits stack-based virtual machine code.
-5. **Execution** – A simple interpreter executes the instructions.
+This will create a `.asm` file to print prime candidates from 2 to 100 using the `!` operator.
 
 ---
 
